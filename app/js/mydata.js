@@ -62,6 +62,7 @@ $(function($) {
 	//ajax加载全国各地省市县
 	$.ajax({
 		url: '../data/region.json',
+		dataType:'json',
 		success: function(res) {
 			//遍历第一遍
 			$.each(res, function(idx, item) {

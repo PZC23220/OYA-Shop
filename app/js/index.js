@@ -11,7 +11,8 @@
 	var $fix = $('.fix').eq(1);
 	//设置全局ajax
 	$.ajaxSetup({
-		url:'../data/products.json',
+		url:'data/products.json',
+		dataType:'json',
 		success:function(res){
 			$.each(res, function(idx,item) {
 				//创建商品对象并追加到页面中

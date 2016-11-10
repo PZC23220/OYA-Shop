@@ -358,9 +358,10 @@ body {
 .dingdan1_4 {
   display: flex;
   height: 48px;
-  line-height: 48px;
   text-align: right;
   border-top: solid 1px #cccccc;
+  justify-content: center;
+  align-items: center;
 }
 
 .span5 {

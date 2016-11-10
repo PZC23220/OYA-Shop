@@ -4,6 +4,7 @@
 	//设置全局ajax
 	$.ajaxSetup({
 		url:"../data/list.json",   //获取json地址
+		dataType:'json',           //声明数据类型
 		success:function(res){   //请求成功后执行
 			$.each(res,function(idx,item){   //遍历获取的对象
 				//创建数据列表

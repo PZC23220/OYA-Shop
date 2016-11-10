@@ -117,7 +117,7 @@ body{
 .hh3{flex: 1; position: absolute;right: 20px;}
 .hh3 b{font-weight: normal;}
 
-.dingdan1_4{display: flex;height: 48px;line-height: 48px;text-align: right;border-top: solid 1px #cccccc;}
+.dingdan1_4{display: flex;height: 48px;text-align: right;border-top: solid 1px #cccccc;justify-content: center;align-items: center;}
 .span5{flex: 1;margin-right: 20px;}
 .button1{margin-left: 10px;padding: 5px;background: #fff;border: solid 1px #ccc;border-radius: 5px;}
 .button2{margin-left: 10px;padding: 5px;background: #fff;border: solid 1px #ccc;border-radius: 5px;}
