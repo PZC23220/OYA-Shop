@@ -45,16 +45,10 @@ body{
   right: 0;
   left: 5px;
 }
-
-.goods {
-    position: absolute;
-    width: 100%;
-    margin: 48px 0 54px;
-}
-
-.goods .swiper-container {
-  width: 100%;
-  margin-top: 20px;
+.container{
+  width:100%;
+  margin:48px 0 54px;
+  padding:0;
 }
 .goods .swiper-container .swiper-slide img{
     display: block;
@@ -101,12 +95,8 @@ body{
 /*评论*/
 .comment-list {
   font-size: 14px;
-  position: absolute;
-  width: 100%;
-  left: 100%;
   overflow-y: auto;
   background: #f1f5f6;
-  margin: 48px 0 54px;
 }
 
 .comment-list .comment-content {

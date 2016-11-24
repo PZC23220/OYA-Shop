@@ -7,33 +7,50 @@
 		paginationClickable: true,
 		loop: true,
 	});
+
+    var BigSwiper = new Swiper('.container', {
+        speed:500,
+        onSlideChangeStart: function(){
+          $(".ul-li .active").removeClass('active')
+          $(".ul-li li").eq(BigSwiper.activeIndex).addClass('active')  
+        }
+    });
+    $(".ul-li li").on('touchstart mousedown',function(e){
+        e.preventDefault()
+        $(".tabs .active").removeClass('active')
+        $(this).addClass('active')
+        BigSwiper.slideTo( $(this).index() )
+  })
+  $(".ul-li li").click(function(e){
+      e.preventDefault()
+  }); 
 	
      var $eLi= $('ul.ul-li').find('li');
      var goods=$('.goods');
      var comment=$('.comment-list');
 	//点击切换详情/评论
-     $eLi.each(function(index){
-     	var $self = $(this);
-     	$self.on('singleTap',function(){
-     		$self.addClass('active').siblings().removeClass('active');
-     		if(index==0){
-     			goods.animate({left:0},1000);
-     			comment.animate({left:'100%'},1000);
-     		}else if(index==1){
-     			goods.animate({left:'-100%'},1000);
-     			comment.animate({left:0},1000);
-     		}
-     	});
-     });
-    $(window).on('swipeLeft',function(){
-    	goods.animate({left:'-100%'},1000);
-		comment.animate({left:0},1000);
-		$eLi.eq(1).addClass('active').siblings().removeClass('active');
-    }).on('swipeRight',function(){
-    	goods.animate({left:0},1000);
-		comment.animate({left:'100%'},1000);
-		$eLi.eq(0).addClass('active').siblings().removeClass('active');
-    });
+  //    $eLi.each(function(index){
+  //    	var $self = $(this);
+  //    	$self.on('singleTap',function(){
+  //    		$self.addClass('active').siblings().removeClass('active');
+  //    		if(index==0){
+  //    			goods.animate({left:0},1000);
+  //    			comment.animate({left:'100%'},1000);
+  //    		}else if(index==1){
+  //    			goods.animate({left:'-100%'},1000);
+  //    			comment.animate({left:0},1000);
+  //    		}
+  //    	});
+  //    });
+  //   $(window).on('swipeLeft',function(){
+  //   	goods.animate({left:'-100%'},1000);
+		// comment.animate({left:0},1000);
+		// $eLi.eq(1).addClass('active').siblings().removeClass('active');
+  //   }).on('swipeRight',function(){
+  //   	goods.animate({left:0},1000);
+		// comment.animate({left:'100%'},1000);
+		// $eLi.eq(0).addClass('active').siblings().removeClass('active');
+  //   });
      // localStoryge
      // 按钮
      var $car=$('.payMethod');
@@ -249,6 +266,7 @@ $(function($) {
 	//ajax加载全国各地省市县
 	$.ajax({
 		url: '../data/region.json',
+		dataType:'json',
 		success: function(res) {
 			//遍历第一遍
 			$.each(res, function(idx, item) {
@@ -842,4 +860,15 @@ $(function($) {
 	}else{
 		$ziliao.html('完善资料');
 	}
+	var $headPic = $('.headPic');
+	$headPic.on('singleTap','img',function(){
+		var $img = $(this);
+		 navigator.camera.getPicture(function(imgData){
+	       $img.attr({
+	       	'src': imgData
+	       });
+		},function(){
+			alert('头像上传失败');
+		},{quality:80})
+	});
 });
